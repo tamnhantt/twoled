@@ -67,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return ElevatedButton(
       onPressed: () {
         setState(() {
-          gpioLed.gpio16OutputLevel(true);
           gpioLed.gpio17OutputLevel(true);
         });
       },
@@ -80,7 +79,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return ElevatedButton(
       onPressed: () {
         setState(() {
-          gpioLed.gpio16OutputLevel(false);
           gpioLed.gpio17OutputLevel(false);
         });
       },
