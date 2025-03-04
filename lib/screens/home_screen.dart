@@ -53,9 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
             // Điều khiển LED 2
             const Text('LED 2',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            getElevatedButtonLedOn(gpioLedTwo, 'LED 2 On'),
+            getElevatedButtonLed2On(gpioLedTwo, 'LED 2 On'),
             const SizedBox(height: 10),
-            getElevatedButtonLedOff(gpioLedTwo, 'LED 2 Off'),
+            getElevatedButtonLed2Off(gpioLedTwo, 'LED 2 Off'),
           ],
         ),
       ),
@@ -69,6 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           gpioLed.gpio16OutputLevel(true);
         });
+      },
+      child: Text(label),
+    );
+  }
+
+  Widget getElevatedButtonLed2On(dynamic gpioLed, String label) {
+    return ElevatedButton(
+      onPressed: () {
         setState(() {
           gpioLed.gpio17OutputLevel(true);
         });
@@ -84,6 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           gpioLed.gpio16OutputLevel(false);
         });
+      },
+      child: Text(label),
+    );
+  }
+
+  Widget getElevatedButtonLed2Off(dynamic gpioLed, String label) {
+    return ElevatedButton(
+      onPressed: () {
         setState(() {
           gpioLed.gpio17OutputLevel(false);
         });
