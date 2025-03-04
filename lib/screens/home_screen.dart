@@ -56,6 +56,27 @@ class _HomeScreenState extends State<HomeScreen> {
             getElevatedButtonLed2On(gpioLedTwo, 'LED 2 On'),
             const SizedBox(height: 10),
             getElevatedButtonLed2Off(gpioLedTwo, 'LED 2 Off'),
+            const Text('Control Both LEDs',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  gpioLedOne.gpio16OutputLevel(true);
+                  gpioLedTwo.gpio17OutputLevel(true);
+                });
+              },
+              child: const Text('Turn Both LEDs On'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  gpioLedOne.gpio16OutputLevel(false);
+                  gpioLedTwo.gpio17OutputLevel(false);
+                });
+              },
+              child: const Text('Turn Both LEDs Off'),
+            )
           ],
         ),
       ),
