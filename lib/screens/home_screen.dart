@@ -86,3 +86,28 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+Widget getElevatedButtonLedOn(dynamic gpioLed, String label) {
+  return ElevatedButton(
+    onPressed: () {
+      setState(() {
+        gpioLed.gpio17OutputLevel(true);
+      });
+    },
+    child: Text(label),
+  );
+}
+
+// Hàm chung để tạo nút bấm tắt LED
+Widget getElevatedButtonLedOff(dynamic gpioLed, String label) {
+  return ElevatedButton(
+    onPressed: () {
+      setState(() {
+        gpioLed.gpio17OutputLevel(false);
+      });
+    },
+    child: Text(label),
+  );
+}
+
+void setState(Null Function() param0) {}
