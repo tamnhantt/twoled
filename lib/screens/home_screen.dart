@@ -67,6 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return ElevatedButton(
       onPressed: () {
         setState(() {
+          gpioLed.gpio16OutputLevel(true);
+        });
+        setState(() {
           gpioLed.gpio17OutputLevel(true);
         });
       },
@@ -78,6 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget getElevatedButtonLedOff(dynamic gpioLed, String label) {
     return ElevatedButton(
       onPressed: () {
+        setState(() {
+          gpioLed.gpio16OutputLevel(false);
+        });
         setState(() {
           gpioLed.gpio17OutputLevel(false);
         });
